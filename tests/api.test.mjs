@@ -419,3 +419,13 @@ test('unknown routes return JSON 404 for the API', async () => {
   assert.equal(r.status, 404);
   assert.ok(r.data.error);
 });
+
+test('session cookie is SameSite=None; Secure over HTTPS so it works inside an embedded preview', async () => {
+  const body = JSON.stringify({ identifier: 'Tester_One', password: 'secret123' });
+  const headers = { 'Content-Type': 'application/json' };
+  const plain = await fetch(base + '/api/auth/login', { method: 'POST', headers, body });
+  assert.match(plain.headers.get('set-cookie') || '', /SameSite=Lax/);
+  assert.doesNotMatch(plain.headers.get('set-cookie') || '', /; Secure/);
+  const https = await fetch(base + '/api/auth/login', { method: 'POST', headers: { ...headers, 'X-Forwarded-Proto': 'https' }, body });
+  assert.match(https.headers.get('set-cookie') || '', /SameSite=None; Secure/);
+});

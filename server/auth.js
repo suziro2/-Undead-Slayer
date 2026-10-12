@@ -34,22 +34,31 @@ export function createSession(db, userId, config) {
   return token;
 }
 
-function sessionCookie(token, config) {
-  const parts = [
+// The game can run inside a cross-site iframe (for example, an HTTPS preview embedded in another
+// site). Browsers only send SameSite=None cookies in that context, and they require Secure, so
+// HTTPS requests get SameSite=None; Secure. Plain HTTP (local development) keeps SameSite=Lax.
+// Lax is still safe on its own: every state-changing route also requires a JSON Content-Type,
+// which cross-site forms cannot send without a CORS preflight that the server never allows.
+export function isSecureRequest(req, config) {
+  return Boolean(config.cookieSecure || req.secure || req.headers['x-forwarded-proto'] === 'https');
+}
+
+function cookieAttributes(secure) {
+  return secure ? 'SameSite=None; Secure' : 'SameSite=Lax';
+}
+
+function sessionCookie(token, config, req) {
+  return [
     `${SESSION_COOKIE}=${encodeURIComponent(token)}`,
     'Path=/',
     'HttpOnly',
-    'SameSite=Lax',
+    cookieAttributes(isSecureRequest(req, config)),
     `Max-Age=${Math.floor(config.sessionDays * 86400)}`,
-  ];
-  if (config.cookieSecure) parts.push('Secure');
-  return parts.join('; ');
+  ].join('; ');
 }
 
-function clearCookie(config) {
-  const parts = [`${SESSION_COOKIE}=`, 'Path=/', 'HttpOnly', 'SameSite=Lax', 'Max-Age=0'];
-  if (config.cookieSecure) parts.push('Secure');
-  return parts.join('; ');
+function clearCookie(config, req) {
+  return [`${SESSION_COOKIE}=`, 'Path=/', 'HttpOnly', cookieAttributes(isSecureRequest(req, config)), 'Max-Age=0'].join('; ');
 }
 
 // Resolves the session cookie to a user id. Returns null when missing or expired.
@@ -111,7 +120,7 @@ export function createAuthRouter(db, config) {
       return userId;
     });
     const token = createSession(db, result, config);
-    res.set('Set-Cookie', sessionCookie(token, config));
+    res.set('Set-Cookie', sessionCookie(token, config, req));
     res.status(201).json({ user: userPublic(db.prepare('SELECT * FROM users WHERE id = ?').get(result)), recoveryCode, state: getState(db, result) });
   });
 
@@ -133,14 +142,14 @@ export function createAuthRouter(db, config) {
     loginLimiter.reset(`user:${key}`);
     db.prepare('UPDATE users SET last_login_at = ? WHERE id = ?').run(Date.now(), user.id);
     const token = createSession(db, user.id, config);
-    res.set('Set-Cookie', sessionCookie(token, config));
+    res.set('Set-Cookie', sessionCookie(token, config, req));
     res.json({ user: userPublic(user), state: getState(db, user.id) });
   });
 
   router.post('/logout', (req, res) => {
     const token = parseCookies(req.headers.cookie)[SESSION_COOKIE];
     if (token) db.prepare('DELETE FROM sessions WHERE token_hash = ?').run(hashToken(token));
-    res.set('Set-Cookie', clearCookie(config));
+    res.set('Set-Cookie', clearCookie(config, req));
     res.json({ ok: true });
   });
 

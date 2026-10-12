@@ -69,7 +69,9 @@ data/          SQLite database (git-ignored)
 
 - Passwords are hashed with scrypt (N=16384, r=8, p=1, 16-byte salt) and compared with `timingSafeEqual`.
 - Session tokens are random 32-byte values; only their SHA-256 hash is stored. Cookies are `HttpOnly`,
-  `SameSite=Lax`, optionally `Secure`, with a 14-day expiry.
+  `SameSite=None; Secure` over HTTPS (needed when the game runs inside an embedded preview, where browsers
+  drop `SameSite=Lax` cookies) and `SameSite=Lax` over plain HTTP. Cookies last 14 days. Every state-changing
+  route requires a JSON Content-Type, which cross-site forms cannot send.
 - Login and recovery are rate-limited per IP and per username. Login failures return a generic
   "Invalid credentials" message.
 - Registration validates usernames (3-20 chars, `A-Za-z0-9_`, case-insensitive unique), emails (unique,
