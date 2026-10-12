@@ -70,7 +70,10 @@ export function createApp({ db, config }) {
 
   app.use('/api', (req, res) => res.status(404).json({ error: 'Not found' }));
 
-  app.get('/', (req, res) => res.sendFile(join(root, 'client/index.html')));
+  app.get('/', (req, res) => {
+    res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+    res.sendFile(join(root, 'client/index.html'));
+  });
 
   // eslint-disable-next-line no-unused-vars
   app.use((err, req, res, next) => {
