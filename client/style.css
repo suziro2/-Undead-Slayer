@@ -31,3 +31,9 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .error { color: var(--bad); font-size: 8px; min-height: 12px; margin: 0; line-height: 1.6; }
 .code { font-size: 14px; color: var(--accent); letter-spacing: 2px; text-align: center; padding: 14px; background: #0a0c18; border: 2px dashed var(--edge); user-select: all; }
 .check { flex-direction: row; align-items: center; gap: 8px; }
+
+/* Build label: which version of the game this page runs (helps when a browser shows an old copy). */
+.build-label {
+  position: fixed; right: 6px; bottom: 4px; z-index: 9999; pointer-events: none;
+  font: 10px ui-monospace, monospace; color: #8f9bc2; opacity: 0.8;
+}

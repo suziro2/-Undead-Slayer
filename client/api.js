@@ -13,15 +13,19 @@ export class ApiError extends Error {
   }
 }
 
+let memoryToken = null;
+
 export function getSessionToken() {
+  if (memoryToken) return memoryToken;
   try { return sessionStorage.getItem(TOKEN_KEY); } catch { return null; }
 }
 
 function setSessionToken(token) {
+  memoryToken = token || null;
   try {
     if (token) sessionStorage.setItem(TOKEN_KEY, token);
     else sessionStorage.removeItem(TOKEN_KEY);
-  } catch { /* storage unavailable: cookies still work */ }
+  } catch { /* storage blocked (common in cross-site iframes): the in-memory copy still works */ }
 }
 
 export async function api(method, url, body) {

@@ -5,10 +5,19 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createAuthRouter, createProfileRouter, requireAuth } from './auth.js';
 import { createGameRouter } from './progress.js';
+import { execFileSync } from 'node:child_process';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '..');
 const require = createRequire(import.meta.url);
+
+function gitCommit() {
+  try {
+    return execFileSync('git', ['rev-parse', '--short', 'HEAD'], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() || 'dev';
+  } catch {
+    return 'dev';
+  }
+}
 
 export function createApp({ db, config }) {
   const app = express();
@@ -34,6 +43,18 @@ export function createApp({ db, config }) {
   app.use(express.static(join(root, 'public'), { index: false, dotfiles: 'ignore', setHeaders: noCache }));
   app.use(express.static(join(root, 'client'), { index: false, dotfiles: 'ignore', setHeaders: noCache }));
 
+  // Build label: lets a player confirm which version the server runs (shown in the corner of the page).
+  const build = process.env.BUILD_ID || gitCommit();
+  app.get('/api/health', (req, res) => res.json({ ok: true, build }));
+  app.use('/api', (req, res, next) => {
+    const started = Date.now();
+    res.on('finish', () => {
+      if (process.env.LOG_REQUESTS === 'false') return;
+      console.log(`${new Date().toISOString()} ${req.method} ${req.originalUrl} ${res.statusCode} ${Date.now() - started}ms ` +
+        `cookie=${req.headers.cookie ? 'yes' : 'no'} bearer=${req.headers.authorization ? 'yes' : 'no'}`);
+    });
+    next();
+  });
   app.use('/api', express.json({ limit: '16kb' }));
   // Mutating API calls must send JSON; combined with SameSite=Lax this blocks cross-site form posts.
   app.use('/api', (req, res, next) => {

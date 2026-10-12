@@ -13,5 +13,10 @@ window.addEventListener('gravemark:logout', async () => {
 // runs again and the login overlay appears, instead of leaving an error on screen.
 window.addEventListener('gravemark:session-expired', () => window.location.reload());
 
+fetch('/api/health')
+  .then((r) => r.json())
+  .then((d) => { document.querySelector('#build-label').textContent = `build ${d.build}`; })
+  .catch(() => { /* label is optional */ });
+
 buildGame();
 document.querySelector('#game-root').dataset.ready = '1';
