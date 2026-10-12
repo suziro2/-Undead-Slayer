@@ -15,6 +15,18 @@ export class ApiError extends Error {
 
 let memoryToken = null;
 
+// Shown in the corner label so a player can report the login state without developer tools.
+export function sessionInfo() {
+  let stored = false;
+  try { stored = Boolean(localStorage.getItem(TOKEN_KEY)); } catch { /* storage blocked */ }
+  let storage = 'ok';
+  try {
+    localStorage.setItem('gravemark.probe', '1');
+    localStorage.removeItem('gravemark.probe');
+  } catch { storage = 'blocked'; }
+  return { token: memoryToken ? 'in-memory' : stored ? 'stored' : 'none', storage };
+}
+
 export function getSessionToken() {
   if (memoryToken) return memoryToken;
   try { return localStorage.getItem(TOKEN_KEY); } catch { return null; }
