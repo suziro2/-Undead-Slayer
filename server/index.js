@@ -7,7 +7,9 @@ const config = {
   host: process.env.HOST || '0.0.0.0',
   port: Number(process.env.PORT) || 3000,
   dbPath: resolve(process.env.DATABASE_PATH || 'data/undead-slayer.db'),
-  cookieSecure: process.env.COOKIE_SECURE === 'true',
+  // Secure by default (required for SameSite=None cookies in the HTTPS preview). Set COOKIE_SECURE=false
+  // only when testing over plain HTTP on a LAN address.
+  cookieSecure: process.env.COOKIE_SECURE !== 'false',
   sessionDays: Number(process.env.SESSION_DAYS) || 14,
   trustProxy: process.env.TRUST_PROXY === 'true',
 };

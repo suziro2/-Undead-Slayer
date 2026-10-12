@@ -1,7 +1,7 @@
 // Thin fetch wrapper. All URLs are relative so the browser never calls localhost.
 //
 // Auth: the server sets an HttpOnly session cookie. Embedded previews can drop cookies, so the
-// login/register response also returns the session token, which is kept in sessionStorage (per tab)
+// login/register response also returns the session token, which is kept in localStorage so it survives reloads
 // and sent as a Bearer header. Logout clears it.
 const TOKEN_KEY = 'gravemark.session';
 
@@ -17,15 +17,15 @@ let memoryToken = null;
 
 export function getSessionToken() {
   if (memoryToken) return memoryToken;
-  try { return sessionStorage.getItem(TOKEN_KEY); } catch { return null; }
+  try { return localStorage.getItem(TOKEN_KEY); } catch { return null; }
 }
 
 function setSessionToken(token) {
   memoryToken = token || null;
   try {
-    if (token) sessionStorage.setItem(TOKEN_KEY, token);
-    else sessionStorage.removeItem(TOKEN_KEY);
-  } catch { /* storage blocked (common in cross-site iframes): the in-memory copy still works */ }
+    if (token) localStorage.setItem(TOKEN_KEY, token);
+    else localStorage.removeItem(TOKEN_KEY);
+  } catch { /* storage blocked: the cookie and the in-memory copy still work */ }
 }
 
 export async function api(method, url, body) {

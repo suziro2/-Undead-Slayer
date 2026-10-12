@@ -39,7 +39,7 @@ npm test           # node:test suite (rules, security, API flows, assets, battle
 | `PORT` | `3000` | HTTP port |
 | `HOST` | `0.0.0.0` | Bind address |
 | `DATABASE_PATH` | `data/undead-slayer.db` | SQLite file (created on first start) |
-| `COOKIE_SECURE` | `false` | Set `true` when served over HTTPS |
+| `COOKIE_SECURE` | `true` | Session cookies are `Secure; SameSite=None`. Set `false` only for plain-HTTP LAN testing |
 | `SESSION_DAYS` | `14` | Session lifetime |
 | `TRUST_PROXY` | `false` | Set `true` only behind a trusted reverse proxy |
 
