@@ -1,9 +1,12 @@
 // Thin fetch wrapper. All URLs are relative so the browser never calls localhost.
 //
-// Auth: the server sets an HttpOnly session cookie. Embedded previews can drop cookies, so the
-// login/register response also returns the session token, which is kept in localStorage so it survives reloads
-// and sent as a Bearer header. Logout clears it.
+// Auth: the server sets an HttpOnly session cookie. Some browsers and embedded previews block cookies and
+// site storage, so the login response also returns a session token. The token is kept in memory, in
+// localStorage when that works, and as a last resort in the page address (?session=...). It is sent as a
+// Bearer header. Logout and expired sessions clear it everywhere.
 const TOKEN_KEY = 'gravemark.session';
+const URL_PARAM = 'session';
+const TOKEN_PATTERN = /^[A-Za-z0-9_-]{20,128}$/;
 
 export class ApiError extends Error {
   constructor(message, status, field) {
@@ -15,21 +18,44 @@ export class ApiError extends Error {
 
 let memoryToken = null;
 
+function tokenFromUrl() {
+  try {
+    const token = new URLSearchParams(location.search).get(URL_PARAM);
+    return token && TOKEN_PATTERN.test(token) ? token : null;
+  } catch { return null; }
+}
+
+function writeTokenToUrl(token) {
+  try {
+    const url = new URL(location.href);
+    if (token) url.searchParams.set(URL_PARAM, token);
+    else url.searchParams.delete(URL_PARAM);
+    if (url.href !== location.href) history.replaceState(history.state, '', url);
+  } catch { /* address bar not writable: other copies still work */ }
+}
+
+function readStoredToken() {
+  try { return localStorage.getItem(TOKEN_KEY); } catch { return null; }
+}
+
+// A token in the address (after a reload or a link) is picked up on load.
+memoryToken = tokenFromUrl();
+
 // Shown in the corner label so a player can report the login state without developer tools.
 export function sessionInfo() {
-  let stored = false;
-  try { stored = Boolean(localStorage.getItem(TOKEN_KEY)); } catch { /* storage blocked */ }
   let storage = 'ok';
   try {
     localStorage.setItem('gravemark.probe', '1');
     localStorage.removeItem('gravemark.probe');
   } catch { storage = 'blocked'; }
-  return { token: memoryToken ? 'in-memory' : stored ? 'stored' : 'none', storage };
+  const source = memoryToken
+    ? (tokenFromUrl() ? 'address' : readStoredToken() ? 'memory+stored' : 'memory')
+    : readStoredToken() ? 'stored' : 'none';
+  return { token: source, storage };
 }
 
 export function getSessionToken() {
-  if (memoryToken) return memoryToken;
-  try { return localStorage.getItem(TOKEN_KEY); } catch { return null; }
+  return memoryToken || readStoredToken() || tokenFromUrl();
 }
 
 function setSessionToken(token) {
@@ -37,7 +63,8 @@ function setSessionToken(token) {
   try {
     if (token) localStorage.setItem(TOKEN_KEY, token);
     else localStorage.removeItem(TOKEN_KEY);
-  } catch { /* storage blocked: the cookie and the in-memory copy still work */ }
+  } catch { /* storage blocked: the address and the in-memory copy still work */ }
+  writeTokenToUrl(memoryToken);
 }
 
 // Build id injected by the server into the page (see server/app.js). Lets the server detect stale pages.
@@ -62,6 +89,7 @@ export async function api(method, url, body) {
   try { data = await res.json(); } catch { data = null; }
   if (url === '/api/auth/logout') setSessionToken(null);
   if (res.status === 401 && !url.startsWith('/api/auth/')) {
+    setSessionToken(null);
     window.dispatchEvent(new CustomEvent('gravemark:session-expired'));
   }
   if (!res.ok) throw new ApiError(data?.error || `Request failed (${res.status})`, res.status, data?.field);

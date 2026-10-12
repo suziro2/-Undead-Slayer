@@ -72,6 +72,9 @@ data/          SQLite database (git-ignored)
   `SameSite=None; Secure` over HTTPS (needed when the game runs inside an embedded preview, where browsers
   drop `SameSite=Lax` cookies) and `SameSite=Lax` over plain HTTP. Cookies last 14 days. Every state-changing
   route requires a JSON Content-Type, which cross-site forms cannot send.
+- Browsers that block cookies and site storage (common for embedded previews) fall back to a session token
+  in the page address (`?session=...`). Anyone who can see that address, or your browser history, can use the
+  session until you log out. Logging out removes the token from the address and ends the session on the server.
 - Login and recovery are rate-limited per IP and per username. Login failures return a generic
   "Invalid credentials" message.
 - Registration validates usernames (3-20 chars, `A-Za-z0-9_`, case-insensitive unique), emails (unique,
