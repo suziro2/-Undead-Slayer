@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { createAuthRouter, createProfileRouter, requireAuth } from './auth.js';
 import { createGameRouter } from './progress.js';
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '..');
@@ -48,10 +49,15 @@ export function createApp({ db, config }) {
   app.get('/api/health', (req, res) => res.json({ ok: true, build }));
   app.use('/api', (req, res, next) => {
     const started = Date.now();
+    const clientBuild = req.headers['x-client-build'];
+    // A page from an older build does not send X-Client-Build. Ask the browser to drop its cached
+    // assets so the next reload fetches the current client.
+    if (req.path !== '/health' && !clientBuild) res.set('Clear-Site-Data', '"cache"');
     res.on('finish', () => {
       if (process.env.LOG_REQUESTS === 'false') return;
       console.log(`${new Date().toISOString()} ${req.method} ${req.originalUrl} ${res.statusCode} ${Date.now() - started}ms ` +
-        `cookie=${req.headers.cookie ? 'yes' : 'no'} bearer=${req.headers.authorization ? 'yes' : 'no'}`);
+        `cookie=${req.headers.cookie ? 'yes' : 'no'} bearer=${req.headers.authorization ? 'yes' : 'no'} ` +
+        `client=${clientBuild ? (clientBuild === build ? 'current' : 'other') : 'old'}`);
     });
     next();
   });
@@ -70,9 +76,12 @@ export function createApp({ db, config }) {
 
   app.use('/api', (req, res) => res.status(404).json({ error: 'Not found' }));
 
+  // The page carries its build id so api.js can tell the server which client version is running.
   app.get('/', (req, res) => {
     res.setHeader('Cache-Control', 'no-cache, must-revalidate');
-    res.sendFile(join(root, 'client/index.html'));
+    const html = readFileSync(join(root, 'client/index.html'), 'utf8')
+      .replace('</head>', `  <meta name="gravemark-build" content="${build}">\n</head>`);
+    res.type('html').send(html);
   });
 
   // eslint-disable-next-line no-unused-vars

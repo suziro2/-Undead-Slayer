@@ -28,8 +28,12 @@ function setSessionToken(token) {
   } catch { /* storage blocked: the cookie and the in-memory copy still work */ }
 }
 
+// Build id injected by the server into the page (see server/app.js). Lets the server detect stale pages.
+const CLIENT_BUILD = document.querySelector('meta[name="gravemark-build"]')?.content || '';
+
 export async function api(method, url, body) {
   const init = { method, credentials: 'same-origin', headers: { Accept: 'application/json' } };
+  if (CLIENT_BUILD) init.headers['X-Client-Build'] = CLIENT_BUILD;
   const token = getSessionToken();
   if (token) init.headers.Authorization = `Bearer ${token}`;
   if (method !== 'GET') {
