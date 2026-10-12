@@ -429,3 +429,19 @@ test('session cookie is SameSite=None; Secure over HTTPS so it works inside an e
   const https = await fetch(base + '/api/auth/login', { method: 'POST', headers: { ...headers, 'X-Forwarded-Proto': 'https' }, body });
   assert.match(https.headers.get('set-cookie') || '', /SameSite=None; Secure/);
 });
+
+test('bearer token works without cookies (embedded previews) and logout revokes it', async () => {
+  const login = await req('POST', '/api/auth/login', { body: { identifier: 'Tester_One', password: 'secret123' }, cookie: '' });
+  assert.equal(login.status, 200);
+  assert.ok(login.data.token && login.data.token.length >= 40, 'token returned for the client to keep');
+  const auth = { Authorization: `Bearer ${login.data.token}` };
+  const state = await fetch(base + '/api/state', { headers: auth });
+  assert.equal(state.status, 200, 'state readable with only the Bearer header');
+  const battle = await fetch(base + '/api/battle/start', { method: 'POST', headers: { ...auth, 'Content-Type': 'application/json' }, body: JSON.stringify({ chapter: 1, level: 1 }) });
+  assert.equal(battle.status, 200, 'battle start works without a cookie');
+  const out = await fetch(base + '/api/auth/logout', { method: 'POST', headers: { ...auth, 'Content-Type': 'application/json' }, body: '{}' });
+  assert.equal(out.status, 200);
+  assert.equal((await fetch(base + '/api/state', { headers: auth })).status, 401, 'revoked after logout');
+  const bad = await fetch(base + '/api/state', { headers: { Authorization: 'Bearer ' + 'x'.repeat(40) } });
+  assert.equal(bad.status, 401, 'unknown token rejected');
+});

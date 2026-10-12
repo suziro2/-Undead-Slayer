@@ -61,9 +61,18 @@ function clearCookie(config, req) {
   return [`${SESSION_COOKIE}=`, 'Path=/', 'HttpOnly', cookieAttributes(isSecureRequest(req, config)), 'Max-Age=0'].join('; ');
 }
 
-// Resolves the session cookie to a user id. Returns null when missing or expired.
+// The session token comes from the HttpOnly cookie or, as a fallback for embedded previews where
+// browsers drop cookies, from an `Authorization: Bearer` header that the client keeps in sessionStorage.
+export function sessionToken(req) {
+  const cookie = parseCookies(req.headers.cookie)[SESSION_COOKIE];
+  if (cookie) return cookie;
+  const match = /^Bearer\s+([A-Za-z0-9_-]{20,200})$/.exec(req.headers.authorization || '');
+  return match ? match[1] : null;
+}
+
+// Resolves the session to a user id. Returns null when missing or expired.
 export function resolveSession(db, req) {
-  const token = parseCookies(req.headers.cookie)[SESSION_COOKIE];
+  const token = sessionToken(req);
   if (!token) return null;
   const row = db.prepare('SELECT user_id, expires_at FROM sessions WHERE token_hash = ?').get(hashToken(token));
   if (!row) return null;
@@ -121,7 +130,7 @@ export function createAuthRouter(db, config) {
     });
     const token = createSession(db, result, config);
     res.set('Set-Cookie', sessionCookie(token, config, req));
-    res.status(201).json({ user: userPublic(db.prepare('SELECT * FROM users WHERE id = ?').get(result)), recoveryCode, state: getState(db, result) });
+    res.status(201).json({ user: userPublic(db.prepare('SELECT * FROM users WHERE id = ?').get(result)), recoveryCode, token, state: getState(db, result) });
   });
 
   router.post('/login', (req, res) => {
@@ -143,11 +152,11 @@ export function createAuthRouter(db, config) {
     db.prepare('UPDATE users SET last_login_at = ? WHERE id = ?').run(Date.now(), user.id);
     const token = createSession(db, user.id, config);
     res.set('Set-Cookie', sessionCookie(token, config, req));
-    res.json({ user: userPublic(user), state: getState(db, user.id) });
+    res.json({ user: userPublic(user), token, state: getState(db, user.id) });
   });
 
   router.post('/logout', (req, res) => {
-    const token = parseCookies(req.headers.cookie)[SESSION_COOKIE];
+    const token = sessionToken(req);
     if (token) db.prepare('DELETE FROM sessions WHERE token_hash = ?').run(hashToken(token));
     res.set('Set-Cookie', clearCookie(config, req));
     res.json({ ok: true });
