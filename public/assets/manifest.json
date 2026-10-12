@@ -1,0 +1,2305 @@
+{
+  "version": 1,
+  "generator": "tools/art/gen.mjs",
+  "sprites": {
+    "hero:aiden": {
+      "file": "assets/sprites/heroes/aiden.png",
+      "frame": [
+        48,
+        48
+      ],
+      "cols": 6,
+      "rows": 10,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "walk": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "run": {
+          "row": 2,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "attack": {
+          "row": 3,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "combo": {
+          "row": 4,
+          "frames": 6,
+          "fps": 14,
+          "loop": false
+        },
+        "special": {
+          "row": 5,
+          "frames": 6,
+          "fps": 10,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 12,
+          "loop": false
+        },
+        "dodge": {
+          "row": 7,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "victory": {
+          "row": 9,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        }
+      }
+    },
+    "hero:luna": {
+      "file": "assets/sprites/heroes/luna.png",
+      "frame": [
+        48,
+        48
+      ],
+      "cols": 6,
+      "rows": 10,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "walk": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "run": {
+          "row": 2,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "attack": {
+          "row": 3,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "combo": {
+          "row": 4,
+          "frames": 6,
+          "fps": 14,
+          "loop": false
+        },
+        "special": {
+          "row": 5,
+          "frames": 6,
+          "fps": 10,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 12,
+          "loop": false
+        },
+        "dodge": {
+          "row": 7,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "victory": {
+          "row": 9,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        }
+      }
+    },
+    "hero:ronan": {
+      "file": "assets/sprites/heroes/ronan.png",
+      "frame": [
+        48,
+        48
+      ],
+      "cols": 6,
+      "rows": 10,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "walk": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "run": {
+          "row": 2,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "attack": {
+          "row": 3,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "combo": {
+          "row": 4,
+          "frames": 6,
+          "fps": 14,
+          "loop": false
+        },
+        "special": {
+          "row": 5,
+          "frames": 6,
+          "fps": 10,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 12,
+          "loop": false
+        },
+        "dodge": {
+          "row": 7,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "victory": {
+          "row": 9,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        }
+      }
+    },
+    "hero:mira": {
+      "file": "assets/sprites/heroes/mira.png",
+      "frame": [
+        48,
+        48
+      ],
+      "cols": 6,
+      "rows": 10,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "walk": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "run": {
+          "row": 2,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "attack": {
+          "row": 3,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "combo": {
+          "row": 4,
+          "frames": 6,
+          "fps": 14,
+          "loop": false
+        },
+        "special": {
+          "row": 5,
+          "frames": 6,
+          "fps": 10,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 12,
+          "loop": false
+        },
+        "dodge": {
+          "row": 7,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "victory": {
+          "row": 9,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        }
+      }
+    },
+    "hero:kael": {
+      "file": "assets/sprites/heroes/kael.png",
+      "frame": [
+        48,
+        48
+      ],
+      "cols": 6,
+      "rows": 10,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "walk": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "run": {
+          "row": 2,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "attack": {
+          "row": 3,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "combo": {
+          "row": 4,
+          "frames": 6,
+          "fps": 14,
+          "loop": false
+        },
+        "special": {
+          "row": 5,
+          "frames": 6,
+          "fps": 10,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 12,
+          "loop": false
+        },
+        "dodge": {
+          "row": 7,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "victory": {
+          "row": 9,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        }
+      }
+    },
+    "hero:bruno": {
+      "file": "assets/sprites/heroes/bruno.png",
+      "frame": [
+        48,
+        48
+      ],
+      "cols": 6,
+      "rows": 10,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "walk": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "run": {
+          "row": 2,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "attack": {
+          "row": 3,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "combo": {
+          "row": 4,
+          "frames": 6,
+          "fps": 14,
+          "loop": false
+        },
+        "special": {
+          "row": 5,
+          "frames": 6,
+          "fps": 10,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 12,
+          "loop": false
+        },
+        "dodge": {
+          "row": 7,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "victory": {
+          "row": 9,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        }
+      }
+    },
+    "hero:sylvie": {
+      "file": "assets/sprites/heroes/sylvie.png",
+      "frame": [
+        48,
+        48
+      ],
+      "cols": 6,
+      "rows": 10,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "walk": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "run": {
+          "row": 2,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "attack": {
+          "row": 3,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "combo": {
+          "row": 4,
+          "frames": 6,
+          "fps": 14,
+          "loop": false
+        },
+        "special": {
+          "row": 5,
+          "frames": 6,
+          "fps": 10,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 12,
+          "loop": false
+        },
+        "dodge": {
+          "row": 7,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "victory": {
+          "row": 9,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        }
+      }
+    },
+    "hero:darius": {
+      "file": "assets/sprites/heroes/darius.png",
+      "frame": [
+        48,
+        48
+      ],
+      "cols": 6,
+      "rows": 10,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "walk": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "run": {
+          "row": 2,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "attack": {
+          "row": 3,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "combo": {
+          "row": 4,
+          "frames": 6,
+          "fps": 14,
+          "loop": false
+        },
+        "special": {
+          "row": 5,
+          "frames": 6,
+          "fps": 10,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 12,
+          "loop": false
+        },
+        "dodge": {
+          "row": 7,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "victory": {
+          "row": 9,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        }
+      }
+    },
+    "hero:elian": {
+      "file": "assets/sprites/heroes/elian.png",
+      "frame": [
+        48,
+        48
+      ],
+      "cols": 6,
+      "rows": 10,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "walk": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "run": {
+          "row": 2,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "attack": {
+          "row": 3,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "combo": {
+          "row": 4,
+          "frames": 6,
+          "fps": 14,
+          "loop": false
+        },
+        "special": {
+          "row": 5,
+          "frames": 6,
+          "fps": 10,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 12,
+          "loop": false
+        },
+        "dodge": {
+          "row": 7,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "victory": {
+          "row": 9,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        }
+      }
+    },
+    "hero:riven": {
+      "file": "assets/sprites/heroes/riven.png",
+      "frame": [
+        48,
+        48
+      ],
+      "cols": 6,
+      "rows": 10,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "walk": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "run": {
+          "row": 2,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "attack": {
+          "row": 3,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "combo": {
+          "row": 4,
+          "frames": 6,
+          "fps": 14,
+          "loop": false
+        },
+        "special": {
+          "row": 5,
+          "frames": 6,
+          "fps": 10,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 12,
+          "loop": false
+        },
+        "dodge": {
+          "row": 7,
+          "frames": 4,
+          "fps": 14,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "victory": {
+          "row": 9,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        }
+      }
+    },
+    "mob:zombie": {
+      "file": "assets/sprites/enemies/zombie.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:skeleton": {
+      "file": "assets/sprites/enemies/skeleton.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:bandit": {
+      "file": "assets/sprites/enemies/bandit.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:goblin": {
+      "file": "assets/sprites/enemies/goblin.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:wolf": {
+      "file": "assets/sprites/enemies/wolf.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:dark_mage": {
+      "file": "assets/sprites/enemies/dark_mage.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:ice_warrior": {
+      "file": "assets/sprites/enemies/ice_warrior.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:ice_golem": {
+      "file": "assets/sprites/enemies/ice_golem.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:demon": {
+      "file": "assets/sprites/enemies/demon.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:shadow_assassin": {
+      "file": "assets/sprites/enemies/shadow_assassin.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:sand_scorpion": {
+      "file": "assets/sprites/enemies/sand_scorpion.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:abyssal_fishman": {
+      "file": "assets/sprites/enemies/abyssal_fishman.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:reef_crab": {
+      "file": "assets/sprites/enemies/reef_crab.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:dragon_whelp": {
+      "file": "assets/sprites/enemies/dragon_whelp.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:nightmare_eye": {
+      "file": "assets/sprites/enemies/nightmare_eye.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:nightmare_hound": {
+      "file": "assets/sprites/enemies/nightmare_hound.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:celestial_sentinel": {
+      "file": "assets/sprites/enemies/celestial_sentinel.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "mob:star_wisp": {
+      "file": "assets/sprites/enemies/star_wisp.png",
+      "frame": [
+        40,
+        40
+      ],
+      "cols": 6,
+      "rows": 6,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "attack": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "special": {
+          "row": 3,
+          "frames": 5,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "defeat": {
+          "row": 5,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    "boss:undead_warlord": {
+      "file": "assets/sprites/bosses/undead_warlord.png",
+      "frame": [
+        96,
+        96
+      ],
+      "cols": 6,
+      "rows": 9,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "basic": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "heavy": {
+          "row": 3,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "special": {
+          "row": 4,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "aoe": {
+          "row": 5,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "phase": {
+          "row": 7,
+          "frames": 4,
+          "fps": 6,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 6,
+          "loop": false
+        }
+      }
+    },
+    "boss:forest_guardian": {
+      "file": "assets/sprites/bosses/forest_guardian.png",
+      "frame": [
+        96,
+        96
+      ],
+      "cols": 6,
+      "rows": 9,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "basic": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "heavy": {
+          "row": 3,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "special": {
+          "row": 4,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "aoe": {
+          "row": 5,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "phase": {
+          "row": 7,
+          "frames": 4,
+          "fps": 6,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 6,
+          "loop": false
+        }
+      }
+    },
+    "boss:frost_dragon": {
+      "file": "assets/sprites/bosses/frost_dragon.png",
+      "frame": [
+        96,
+        96
+      ],
+      "cols": 6,
+      "rows": 9,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "basic": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "heavy": {
+          "row": 3,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "special": {
+          "row": 4,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "aoe": {
+          "row": 5,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "phase": {
+          "row": 7,
+          "frames": 4,
+          "fps": 6,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 6,
+          "loop": false
+        }
+      }
+    },
+    "boss:demon_king": {
+      "file": "assets/sprites/bosses/demon_king.png",
+      "frame": [
+        96,
+        96
+      ],
+      "cols": 6,
+      "rows": 9,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "basic": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "heavy": {
+          "row": 3,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "special": {
+          "row": 4,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "aoe": {
+          "row": 5,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "phase": {
+          "row": 7,
+          "frames": 4,
+          "fps": 6,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 6,
+          "loop": false
+        }
+      }
+    },
+    "boss:shadow_overlord": {
+      "file": "assets/sprites/bosses/shadow_overlord.png",
+      "frame": [
+        96,
+        96
+      ],
+      "cols": 6,
+      "rows": 9,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "basic": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "heavy": {
+          "row": 3,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "special": {
+          "row": 4,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "aoe": {
+          "row": 5,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "phase": {
+          "row": 7,
+          "frames": 4,
+          "fps": 6,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 6,
+          "loop": false
+        }
+      }
+    },
+    "boss:sand_tyrant": {
+      "file": "assets/sprites/bosses/sand_tyrant.png",
+      "frame": [
+        96,
+        96
+      ],
+      "cols": 6,
+      "rows": 9,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "basic": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "heavy": {
+          "row": 3,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "special": {
+          "row": 4,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "aoe": {
+          "row": 5,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "phase": {
+          "row": 7,
+          "frames": 4,
+          "fps": 6,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 6,
+          "loop": false
+        }
+      }
+    },
+    "boss:kraken_lord": {
+      "file": "assets/sprites/bosses/kraken_lord.png",
+      "frame": [
+        96,
+        96
+      ],
+      "cols": 6,
+      "rows": 9,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "basic": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "heavy": {
+          "row": 3,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "special": {
+          "row": 4,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "aoe": {
+          "row": 5,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "phase": {
+          "row": 7,
+          "frames": 4,
+          "fps": 6,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 6,
+          "loop": false
+        }
+      }
+    },
+    "boss:elder_dragon": {
+      "file": "assets/sprites/bosses/elder_dragon.png",
+      "frame": [
+        96,
+        96
+      ],
+      "cols": 6,
+      "rows": 9,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "basic": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "heavy": {
+          "row": 3,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "special": {
+          "row": 4,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "aoe": {
+          "row": 5,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "phase": {
+          "row": 7,
+          "frames": 4,
+          "fps": 6,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 6,
+          "loop": false
+        }
+      }
+    },
+    "boss:nightmare_emperor": {
+      "file": "assets/sprites/bosses/nightmare_emperor.png",
+      "frame": [
+        96,
+        96
+      ],
+      "cols": 6,
+      "rows": 9,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "basic": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "heavy": {
+          "row": 3,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "special": {
+          "row": 4,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "aoe": {
+          "row": 5,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "phase": {
+          "row": 7,
+          "frames": 4,
+          "fps": 6,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 6,
+          "loop": false
+        }
+      }
+    },
+    "boss:celestial_overlord": {
+      "file": "assets/sprites/bosses/celestial_overlord.png",
+      "frame": [
+        96,
+        96
+      ],
+      "cols": 6,
+      "rows": 9,
+      "anims": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 6,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 8,
+          "loop": true
+        },
+        "basic": {
+          "row": 2,
+          "frames": 5,
+          "fps": 9,
+          "loop": false
+        },
+        "heavy": {
+          "row": 3,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "special": {
+          "row": 4,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "aoe": {
+          "row": 5,
+          "frames": 6,
+          "fps": 7,
+          "loop": false
+        },
+        "hit": {
+          "row": 6,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "phase": {
+          "row": 7,
+          "frames": 4,
+          "fps": 6,
+          "loop": false
+        },
+        "defeat": {
+          "row": 8,
+          "frames": 6,
+          "fps": 6,
+          "loop": false
+        }
+      }
+    }
+  },
+  "images": {
+    "bg-village": {
+      "far": "assets/bg/village-far.png",
+      "mid": "assets/bg/village-mid.png",
+      "ground": "assets/bg/village-ground.png"
+    },
+    "bg-forest": {
+      "far": "assets/bg/forest-far.png",
+      "mid": "assets/bg/forest-mid.png",
+      "ground": "assets/bg/forest-ground.png"
+    },
+    "bg-frost": {
+      "far": "assets/bg/frost-far.png",
+      "mid": "assets/bg/frost-mid.png",
+      "ground": "assets/bg/frost-ground.png"
+    },
+    "bg-fortress": {
+      "far": "assets/bg/fortress-far.png",
+      "mid": "assets/bg/fortress-mid.png",
+      "ground": "assets/bg/fortress-ground.png"
+    },
+    "bg-shadow": {
+      "far": "assets/bg/shadow-far.png",
+      "mid": "assets/bg/shadow-mid.png",
+      "ground": "assets/bg/shadow-ground.png"
+    },
+    "bg-desert": {
+      "far": "assets/bg/desert-far.png",
+      "mid": "assets/bg/desert-mid.png",
+      "ground": "assets/bg/desert-ground.png"
+    },
+    "bg-sunken": {
+      "far": "assets/bg/sunken-far.png",
+      "mid": "assets/bg/sunken-mid.png",
+      "ground": "assets/bg/sunken-ground.png"
+    },
+    "bg-mountain": {
+      "far": "assets/bg/mountain-far.png",
+      "mid": "assets/bg/mountain-mid.png",
+      "ground": "assets/bg/mountain-ground.png"
+    },
+    "bg-nightmare": {
+      "far": "assets/bg/nightmare-far.png",
+      "mid": "assets/bg/nightmare-mid.png",
+      "ground": "assets/bg/nightmare-ground.png"
+    },
+    "bg-celestial": {
+      "far": "assets/bg/celestial-far.png",
+      "mid": "assets/bg/celestial-mid.png",
+      "ground": "assets/bg/celestial-ground.png"
+    },
+    "title": "assets/bg/title.png",
+    "logo": "assets/logo.png",
+    "icon-coin": "assets/icons/coin.png",
+    "icon-crystal": "assets/icons/crystal.png",
+    "icon-ore": "assets/icons/ore.png",
+    "icon-shard": "assets/icons/shard.png",
+    "icon-potion_red": "assets/icons/potion_red.png",
+    "icon-potion_green": "assets/icons/potion_green.png",
+    "icon-chest": "assets/icons/chest.png",
+    "icon-star": "assets/icons/star.png",
+    "icon-heart": "assets/icons/heart.png",
+    "icon-mana": "assets/icons/mana.png",
+    "icon-lock": "assets/icons/lock.png",
+    "icon-check": "assets/icons/check.png",
+    "icon-skull": "assets/icons/skull.png",
+    "icon-fragment": "assets/icons/fragment.png",
+    "icon-gear": "assets/icons/gear.png",
+    "icon-scroll": "assets/icons/scroll.png",
+    "icon-sword": "assets/icons/sword.png",
+    "icon-bow": "assets/icons/bow.png",
+    "icon-axe": "assets/icons/axe.png",
+    "icon-staff": "assets/icons/staff.png",
+    "icon-dagger": "assets/icons/dagger.png",
+    "icon-spear": "assets/icons/spear.png",
+    "icon-vest": "assets/icons/vest.png",
+    "icon-mail": "assets/icons/mail.png",
+    "icon-plate": "assets/icons/plate.png",
+    "icon-robe": "assets/icons/robe.png",
+    "icon-cloak": "assets/icons/cloak.png"
+  },
+  "portraits": {
+    "aiden": "assets/portraits/aiden.png",
+    "luna": "assets/portraits/luna.png",
+    "ronan": "assets/portraits/ronan.png",
+    "mira": "assets/portraits/mira.png",
+    "kael": "assets/portraits/kael.png",
+    "bruno": "assets/portraits/bruno.png",
+    "sylvie": "assets/portraits/sylvie.png",
+    "darius": "assets/portraits/darius.png",
+    "elian": "assets/portraits/elian.png",
+    "riven": "assets/portraits/riven.png"
+  }
+}

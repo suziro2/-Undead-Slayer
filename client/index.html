@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Undead Slayer: Gravemark</title>
+  <link rel="icon" href="/assets/icons/sword.png" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="game-root">
+    <div id="game"></div>
+  </div>
+  <div id="auth-overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="auth-card">
+      <img class="auth-logo" src="/assets/logo.png" alt="Gravemark" />
+      <h1 id="auth-title">Welcome, Slayer</h1>
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab active" data-tab="login" role="tab">Log In</button>
+        <button type="button" class="tab" data-tab="register" role="tab">Create Account</button>
+        <button type="button" class="tab" data-tab="forgot" role="tab">Forgot Password</button>
+      </div>
+      <form id="form-login" class="auth-form" autocomplete="on" novalidate>
+        <label>Username or email<input name="identifier" autocomplete="username" maxlength="254" required /></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" maxlength="128" required /></label>
+        <button type="submit" class="primary">Log In</button>
+      </form>
+      <form id="form-register" class="auth-form hidden" autocomplete="on" novalidate>
+        <label>Username <small>3-20 letters, numbers, underscore</small><input name="username" autocomplete="username" maxlength="20" required /></label>
+        <label>Email<input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+        <label>Password <small>8-128 chars, at least one letter and one number</small><input name="password" type="password" autocomplete="new-password" maxlength="128" required /></label>
+        <button type="submit" class="primary">Create Account</button>
+      </form>
+      <form id="form-forgot" class="auth-form hidden" autocomplete="off" novalidate>
+        <p class="hint">Use the 16-character recovery code you received when you created your account.</p>
+        <label>Username or email<input name="identifier" maxlength="254" required /></label>
+        <label>Recovery code<input name="recoveryCode" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="30" required /></label>
+        <label>New password<input name="newPassword" type="password" autocomplete="new-password" maxlength="128" required /></label>
+        <button type="submit" class="primary">Reset Password</button>
+      </form>
+      <p id="auth-error" class="error" role="alert"></p>
+    </div>
+  </div>
+  <div id="recovery-overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="recovery-title">
+    <div class="auth-card">
+      <h2 id="recovery-title">Save your recovery code</h2>
+      <p class="hint">This code is shown only once. It is stored hashed on the server and is the only way to reset your password without email.</p>
+      <p id="recovery-code" class="code" aria-live="polite"></p>
+      <button type="button" id="recovery-copy" class="secondary">Copy code</button>
+      <label class="check"><input type="checkbox" id="recovery-ack" /> I have saved this code somewhere safe</label>
+      <button type="button" id="recovery-done" class="primary" disabled>Continue to the game</button>
+    </div>
+  </div>
+  <script src="/vendor/phaser.js"></script>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

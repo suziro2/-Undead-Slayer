@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'PressStart2P';
+  src: url('/vendor/press-start-2p.woff2') format('woff2');
+  font-display: block;
+}
+:root { color-scheme: dark; --ink: #e8ecf7; --panel: #161a2e; --edge: #3d4a7a; --accent: #ffb83d; --bad: #ff6b6b; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #07080f; color: var(--ink); font-family: 'PressStart2P', monospace; }
+body { overflow: hidden; }
+#game-root { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+#game { width: 100vw; height: 100vh; }
+#game canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
+.hidden { display: none !important; }
+.overlay { position: fixed; inset: 0; background: rgba(4, 5, 12, 0.88); display: flex; align-items: center; justify-content: center; z-index: 10; padding: 12px; overflow: auto; }
+.auth-card { width: min(440px, 100%); background: var(--panel); border: 3px solid var(--edge); box-shadow: 0 0 0 3px #000 inset; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.auth-logo { width: 100%; max-height: 110px; object-fit: contain; image-rendering: pixelated; }
+h1, h2 { font-size: 14px; margin: 4px 0; color: var(--accent); font-weight: normal; line-height: 1.5; }
+.tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+.tab { flex: 1; min-width: 120px; background: #0d1020; color: var(--ink); border: 2px solid var(--edge); padding: 8px 4px; font: 8px 'PressStart2P', monospace; cursor: pointer; }
+.tab.active { border-color: var(--accent); color: var(--accent); }
+.auth-form { display: flex; flex-direction: column; gap: 10px; }
+label { display: flex; flex-direction: column; gap: 6px; font-size: 8px; line-height: 1.6; }
+label small { color: #8f9bc2; font-size: 7px; }
+input { background: #0a0c18; color: var(--ink); border: 2px solid var(--edge); padding: 10px; font: 10px 'PressStart2P', monospace; }
+input:focus { outline: none; border-color: var(--accent); }
+button { font: 9px 'PressStart2P', monospace; cursor: pointer; }
+button.primary, button.secondary { padding: 12px; border: 3px solid #000; color: #111; background: var(--accent); box-shadow: 0 3px 0 #7a4e10; }
+button.secondary { background: #8fa3d9; box-shadow: 0 3px 0 #3d4a7a; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.hint { font-size: 7px; line-height: 1.7; color: #aab4d8; margin: 0; }
+.error { color: var(--bad); font-size: 8px; min-height: 12px; margin: 0; line-height: 1.6; }
+.code { font-size: 14px; color: var(--accent); letter-spacing: 2px; text-align: center; padding: 14px; background: #0a0c18; border: 2px dashed var(--edge); user-select: all; }
+.check { flex-direction: row; align-items: center; gap: 8px; }

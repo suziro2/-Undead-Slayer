@@ -1,0 +1,22 @@
+{
+  "name": "undead-slayer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pixel-art 2D action RPG with accounts, gacha, and 50 campaign levels",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server/index.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch server/index.js",
+    "assets": "node tools/art/gen.mjs",
+    "test": "node --disable-warning=ExperimentalWarning --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "dependencies": {
+    "@fontsource/press-start-2p": "^5.3.0",
+    "express": "^5.3.0",
+    "phaser": "^3.90.0"
+  }
+}
