@@ -5,6 +5,8 @@ import { LOADING_TIPS, CHAPTERS, BOSSES } from '../../shared/data.js';
 import { text, panel, button, COLORS } from '../ui.js';
 import { session } from '../session.js';
 import { audio } from '../systems/audio.js';
+import { get } from '../api.js';
+import { showAuth } from '../auth-ui.js';
 
 export class BootScene extends Phaser.Scene {
   constructor() { super('Boot'); }
@@ -25,10 +27,10 @@ export class BootScene extends Phaser.Scene {
       this.stars.fillStyle(0xffffff, 0.2 + ((i * 7) % 5) * 0.15).fillRect(x, y, 1, 1);
     }
     this.title = text(this, 320, 20, 'LOADING', 12, COLORS.accent, { originX: 0.5 });
-    this.percent = text(this, 320, 150, '0%', 10, COLORS.text, { originX: 0.5 });
-    this.barBg = panel(this, 120, 170, 400, 16, { fill: 0x000000 });
+    this.percent = text(this, 200, 150, '0%', 10, COLORS.text, { originX: 0.5 });
+    this.barBg = panel(this, 40, 170, 320, 16, { fill: 0x000000 });
     this.barFill = this.add.graphics();
-    this.statusText = text(this, 320, 196, 'Preparing...', 7, COLORS.dim, { originX: 0.5 });
+    this.statusText = text(this, 200, 196, 'Preparing...', 7, COLORS.dim, { originX: 0.5 });
     this.errorBox = null;
 
     const chapter = CHAPTERS[Math.floor(Math.random() * CHAPTERS.length)];
@@ -71,7 +73,7 @@ export class BootScene extends Phaser.Scene {
     const pct = Math.round(v * 100);
     this.percent.setText(`${pct}%`);
     this.barFill.clear();
-    this.barFill.fillStyle(COLORS.xp, 1).fillRect(122, 172, Math.round(396 * v), 12);
+    this.barFill.fillStyle(COLORS.xp, 1).fillRect(42, 172, Math.round(316 * v), 12);
   }
 
   async beginLoad() {
@@ -100,7 +102,7 @@ export class BootScene extends Phaser.Scene {
 
   showBossArt() {
     if (this.bossSprite || !this.textures.exists(sheetKey('boss', this.bossId))) return;
-    this.bossSprite = this.add.sprite(440, 128, sheetKey('boss', this.bossId), 0);
+    this.bossSprite = this.add.sprite(500, 140, sheetKey('boss', this.bossId), 0);
     const anim = this.anims.create({
       key: animKey('boss', this.bossId, 'idle'),
       frames: this.anims.generateFrameNumbers(sheetKey('boss', this.bossId), { start: 0, end: 3 }),
@@ -123,7 +125,28 @@ export class BootScene extends Phaser.Scene {
     this.percent.setText('100%');
     this.statusText.setText('Ready');
     this.tipTimer.remove();
-    this.time.delayedCall(350, () => this.scene.start('Menu'));
+    this.time.delayedCall(350, () => this.enterGame());
+  }
+
+  // Runs after assets are loaded: restores the saved session if there is one, otherwise shows
+  // the login overlay. Only then does the menu start, so nothing needs a session before login.
+  async enterGame() {
+    if (this.entering) return;
+    this.entering = true;
+    this.statusText.setText('Checking your session...');
+    let payload = null;
+    try {
+      payload = await get('/api/auth/me');
+    } catch {
+      payload = null;
+    }
+    if (!payload?.state) {
+      this.statusText.setText('Sign in or create an account to continue.');
+      payload = await showAuth();
+    }
+    session.apply(payload);
+    this.entering = false;
+    if (this.sys.isActive()) this.scene.start('Menu');
   }
 
   showError(message) {
