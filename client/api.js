@@ -41,6 +41,9 @@ export async function api(method, url, body) {
   let data = null;
   try { data = await res.json(); } catch { data = null; }
   if (url === '/api/auth/logout') setSessionToken(null);
+  if (res.status === 401 && !url.startsWith('/api/auth/')) {
+    window.dispatchEvent(new CustomEvent('gravemark:session-expired'));
+  }
   if (!res.ok) throw new ApiError(data?.error || `Request failed (${res.status})`, res.status, data?.field);
   if (data?.token) setSessionToken(data.token);
   return data;

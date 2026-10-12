@@ -9,5 +9,9 @@ window.addEventListener('gravemark:logout', async () => {
   window.location.reload();
 });
 
+// The session ended while playing (for example, a stale token). Reload so the loading screen
+// runs again and the login overlay appears, instead of leaving an error on screen.
+window.addEventListener('gravemark:session-expired', () => window.location.reload());
+
 buildGame();
 document.querySelector('#game-root').dataset.ready = '1';

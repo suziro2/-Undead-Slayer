@@ -26,8 +26,13 @@ export function createApp({ db, config }) {
   app.get('/vendor/phaser.js', (req, res) => res.sendFile(require.resolve('phaser/dist/phaser.min.js')));
   app.get('/vendor/press-start-2p.woff2', (req, res) => res.sendFile(join(root, 'node_modules/@fontsource/press-start-2p/files/press-start-2p-latin-400-normal.woff2')));
   app.use('/shared', express.static(join(root, 'shared'), { fallthrough: false, index: false }));
-  app.use(express.static(join(root, 'public'), { index: false, dotfiles: 'ignore' }));
-  app.use(express.static(join(root, 'client'), { index: false, dotfiles: 'ignore' }));
+  // Client code changes often: always revalidate HTML/JS/CSS/JSON so a stale cached build cannot
+  // keep running after a deploy. Images and fonts keep the default caching.
+  const noCache = (res, path) => {
+    if (/\.(html|js|css|json)$/.test(path)) res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+  };
+  app.use(express.static(join(root, 'public'), { index: false, dotfiles: 'ignore', setHeaders: noCache }));
+  app.use(express.static(join(root, 'client'), { index: false, dotfiles: 'ignore', setHeaders: noCache }));
 
   app.use('/api', express.json({ limit: '16kb' }));
   // Mutating API calls must send JSON; combined with SameSite=Lax this blocks cross-site form posts.
